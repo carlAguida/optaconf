@@ -30,6 +30,46 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
+    
+    <!-- Benchmark dependency --> 
+    <dependency>
+		<groupId>org.optaplanner</groupId>
+		<artifactId>optaplanner-benchmark</artifactId>
+		</dependency>
+
+    
+    <dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-jdk14</artifactId>
+		<version>1.7.12</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.0</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.jdom</groupId>
+		<artifactId>jdom</artifactId>
+		<version>2.0.2</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>3.12</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>3.9</version>
+	</dependency>
+	
   </dependencies>
+  
+  
 
 </project>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plannerBenchmark>
+  <benchmarkDirectory>local/data/nqueens</benchmarkDirectory>
+  <warmUpSecondsSpentLimit>30</warmUpSecondsSpentLimit>
+  
+  <inheritedSolverBenchmark>
+    <problemBenchmarks>
+      <xStreamAnnotatedClass>org.optaconf.benchmark.examples.nqueens.domain.NQueens</xStreamAnnotatedClass>
+      <inputSolutionFile>data/nqueens/unsolved/32queens.xml</inputSolutionFile>
+      <inputSolutionFile>data/nqueens/unsolved/64queens.xml</inputSolutionFile>
+      <inputSolutionFile>data/nqueens/unsolved/256queens.xml</inputSolutionFile>
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemBenchmarks>
+    <solver>
+      <solutionClass>org.optaconf.benchmark.examples.nqueens.domain.NQueens</solutionClass>
+      <entityClass>org.optaconf.benchmark.examples.nqueens.domain.Queen</entityClass>
+      <scoreDirectorFactory>
+        <scoreDefinitionType>SIMPLE</scoreDefinitionType>
+        <scoreDrl>org/optaconf/solver/nQueensScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination>
+        <minutesSpentLimit>6</minutesSpentLimit>
+      </termination>
+      
+      <constructionHeuristic>
+    		<constructionHeuristicType>ALLOCATE_ENTITY_FROM_QUEUE</constructionHeuristicType>
+  	  </constructionHeuristic>
+    </solver>
+  </inheritedSolverBenchmark>
+
+  <solverBenchmark>
+    <name>Simulated Annealing T </name>
+    <solver>
+      <localSearch>
+	    <acceptor>
+	      <simulatedAnnealingStartingTemperature>400</simulatedAnnealingStartingTemperature>
+	      <entityTabuSize>5</entityTabuSize>
+	    </acceptor>
+	    <forager>
+	      <acceptedCountLimit>1</acceptedCountLimit>
+	    </forager>
+	  </localSearch>
+    </solver>
+  </solverBenchmark>
+  
+  <solverBenchmark>
+    <name>Tabu Search</name>
+    <solver>
+      <localSearch>
+        <changeMoveSelector>
+          <selectionOrder>ORIGINAL</selectionOrder>
+        </changeMoveSelector>
+        <acceptor>
+          <entityTabuSize>5</entityTabuSize>
+        </acceptor>
+        <forager>
+          <pickEarlyType>NEVER</pickEarlyType>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing</name>
+    <solver>
+      <localSearch>
+        <changeMoveSelector>
+          <selectionOrder>ORIGINAL</selectionOrder>
+        </changeMoveSelector>
+        <acceptor>
+          <entityTabuSize>5</entityTabuSize>
+        </acceptor>
+        <forager>
+          <pickEarlyType>NEVER</pickEarlyType>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Late Acceptance</name>
+    <solver>
+      <localSearch>
+        <changeMoveSelector>
+          <selectionOrder>ORIGINAL</selectionOrder>
+        </changeMoveSelector>
+        <acceptor>
+          <entityTabuSize>5</entityTabuSize>
+        </acceptor>
+        <forager>
+          <pickEarlyType>NEVER</pickEarlyType>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  
+</plannerBenchmark>
